@@ -7,6 +7,6 @@ class User(db.Model, UserMixin):
     userId = db.Column(db.Integer, primary_key=True)
     userName = db.Column(db.String(100), index=True, unique=True, nullable=False)
     emailid = db.Column(db.String(100), index=True, nullable=False)
-	
+
     password_hash = db.Column(db.String(255), nullable=False)
 
