@@ -31,7 +31,7 @@ def create_app():
     
     from . import views
     app.register_blueprint(views.mainbp)
-
+ 
     from . import event
     app.register_blueprint(event.bp)
 
