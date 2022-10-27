@@ -12,7 +12,7 @@ def create_app():
     app.secret_key="12345"
 
     #Configue and initialise DB
-    app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///travel123.sqlite'
+    app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///eventManagement.sqlite'
 
     #initialize db with flask app
     db.init_app(app)
