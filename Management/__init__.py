@@ -21,13 +21,13 @@ def create_app():
     bootstrap = Bootstrap5(app)
 
     #initialize the login manager
-    login_manager = LoginManager()
+    #login_manager = LoginManager()
 
 
     #set the name of the login function that lets user login
     # in our case it is auth.login (blueprintname.viewfunction name)
-    login_manager.login_view='auth.login'
-    login_manager.init_app(app)
+    #login_manager.login_view='auth.login'
+    #login_manager.init_app(app)
     
     from . import views
     app.register_blueprint(views.mainbp)

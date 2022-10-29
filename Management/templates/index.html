@@ -2,7 +2,49 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<!--Jumbotron-->
+<section>
+    <div class="jumbotron text-white" style="background-image: url(img/indexJumbotronBackground.png)">
+        <div class="jumbotron_contents">
+            <div class="d-lg-inline p-2 pr-4 text-white">
+                <h2 class="d-none d-lg-inline text-left">Upcoming Music Events</h2>
+                <h2 class="d-none d-sm-block d-lg-none text-center display pb-4">Upcoming Music Events</h2>
+                <h3 class="d-block d-sm-none text-center display pb-4">Upcoming Music Events</h2>
+            </div>
+            <div class="d-md-inline p-2 text-white">
+                <select class="
+                d-block mx-auto col-10 my-2 
+                d-md-inline col-md-5 mx-md-4 
+                col-lg-3 mx-lg-3 
+                col-xl-3 mx-xl-3 
+                custom-select custom-select-sm rounded-pill mx-auto">
+                    <option value="placeholder" disabled selected>Sort By...</option>
+                    <option value="none">None</option>
+                    <option value="most-recent">Upcoming Soon</option>
+                    <option value="furthest-from-me">Recently Listed</option>
+                    <option value="closest-to-me">Closest To Me</option>
+                    <option value="furthest-from-me">Furthest From Me</option>
+                    <option value="furthest-from-me">Cheapest</option>
+                    <option value="furthest-from-me">Most Expensive</option>
+                </select>
+                <input list="encodings" class="
+                d-block mx-auto col-10 mt-4 
+                d-md-inline col-md-5 mx-md-4 mt-md-0
+                col-lg-3 mx-lg-3 
+                col-xl-3 mx-xl-2 
+                custom-select custom-select-sm rounded-pill mx-auto" placeholder="Refine By...">
+                <datalist id="encodings">
+                    <option>Genre - Rock</option>
+                    <option>Genre - Pop</option>
+                    <option>Genre - Electronic</option>
+                    <option>Genre - Dance</option>
+                    <option>Genre - Country</option>
+                    <option>Community</option>
+                    <option>Comedy</option>
+                </datalist>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
 
 {% block content %}  
