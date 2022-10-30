@@ -25,7 +25,7 @@
           </form>
       </div>
 
-      <a href="login.html" class="rounded-pill rounded-lg btn btn-outline-info mt-md-0 px-xl-10 text-center bg-info text-white d-none d-sm-block d-lg-none px-sm-5">Login</a>
+      <a href="{{ url_for('auth.login') }}" class="rounded-pill rounded-lg btn btn-outline-info mt-md-0 px-xl-10 text-center bg-info text-white d-none d-sm-block d-lg-none px-sm-5">Login</a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -76,10 +76,10 @@
                      </div>
                </li>
                <li>
-                     <a href="login.html" class="rounded-pill rounded-lg btn btn-outline-info mt-3 mt-md-0 px-xl-10 text-center bg-info text-white d-sm-none col-11">Login</a>
+                     <a href="{{ url_for('auth.login') }}" class="rounded-pill rounded-lg btn btn-outline-info mt-3 mt-md-0 px-xl-10 text-center bg-info text-white d-sm-none col-11">Login</a>
                </li>
             </ul>
-            <a href="login.html" class="px-5 rounded-pill rounded-lg btn btn-outline-info mt-md-0 px-xl-10 text-center bg-info text-white d-none d-lg-block">Login</a>
+            <a href="{{ url_for('auth.login') }}" class="px-5 rounded-pill rounded-lg btn btn-outline-info mt-md-0 px-xl-10 text-center bg-info text-white d-none d-lg-block">Login</a>
          </div>
       </nav>
 
