@@ -2,7 +2,7 @@ from flask import (
     Blueprint, flash, render_template, request, url_for, redirect
 ) 
 from werkzeug.security import generate_password_hash,check_password_hash
-#from .models import User
+from .models import User
 from .forms import LoginForm, RegisterForm
 from flask_login import login_user, login_required,logout_user
 from .models import User
@@ -15,7 +15,7 @@ bp = Blueprint('auth', __name__)
 
 # this is the hint for a login function
 @bp.route('/login', methods=['GET', 'POST'])
-def authenticate(): #view function
+def login(): #view function
      print('In Login View function')
      login_form = LoginForm()
      error=None

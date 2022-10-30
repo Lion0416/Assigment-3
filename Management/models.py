@@ -4,13 +4,15 @@ from flask_login import UserMixin
 
 class User(db.Model, UserMixin):
     __tablename__='users' # good practice to specify table name
-    userId = db.Column(db.Integer, primary_key=True, nullable=False)
+    id = db.Column(db.Integer, primary_key=True, nullable=False)
     userName = db.Column(db.String(100), index=True, unique=True, nullable=False)
-    emailid = db.Column(db.String(100), index=True, nullable=False)
+    emailid = db.Column(db.String(100), index=True, unique=True, nullable=False)
     password_hash = db.Column(db.String(255), nullable=False)
 
     user = db.relationship('Order', backref='user')
     comments = db.relationship('Comment', backref='user')
+
+
 
 class Event(db.Model):
     __tablename__ = 'event'
@@ -38,7 +40,7 @@ class Order(db.Model):
     orderDate = db.Column(db.DateTime, nullable=False)
 
     #add the foreign keys
-    userId = db.Column(db.Integer, db.ForeignKey('users.userId'))
+    userId = db.Column(db.Integer, db.ForeignKey('users.id'))
     eventId = db.Column(db.Integer, db.ForeignKey('event.eventId'))
    
    
@@ -53,5 +55,5 @@ class Comment(db.Model):
 
 
     #add the foreign keys
-    userId = db.Column(db.Integer, db.ForeignKey('users.userId'))
+    userId = db.Column(db.Integer, db.ForeignKey('users.id'))
     eventId = db.Column(db.Integer, db.ForeignKey('event.eventId'))

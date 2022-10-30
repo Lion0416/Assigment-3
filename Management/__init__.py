@@ -1,7 +1,9 @@
-from flask import Flask 
+from flask import Flask
 from flask_bootstrap import Bootstrap5
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+
+
 
 db=SQLAlchemy()
 
@@ -44,5 +46,9 @@ def create_app():
     from . import auth
     app.register_blueprint(auth.bp)
     
+
+
     return app
     
+
+
