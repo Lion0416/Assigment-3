@@ -9,7 +9,7 @@ class User(db.Model, UserMixin):
     emailid = db.Column(db.String(100), index=True, nullable=False)
     password_hash = db.Column(db.String(255), nullable=False)
 
-    user = db.relationship('Order', backref='User')
+    user = db.relationship('Order', backref='user')
     comments = db.relationship('Comment', backref='user')
 
 class Event(db.Model):
@@ -24,8 +24,10 @@ class Event(db.Model):
     ticketPrice = db.Column(db.Integer)
     eventImage = db.Column(db.String(400))
 
-    event = db.relationship('Order', backref='Event')
+    order = db.relationship('Order', backref='event')
     comments = db.relationship('Comment', backref='event')
+
+
 
 
 class Order(db.Model):
@@ -36,12 +38,10 @@ class Order(db.Model):
     orderDate = db.Column(db.DateTime, nullable=False)
 
     #add the foreign keys
-    userId = db.Column(db.Integer, db.ForeignKey('userId'))
-    eventId = db.Column(db.Integer, db.ForeignKey('eventId'))
+    userId = db.Column(db.Integer, db.ForeignKey('users.userId'))
+    eventId = db.Column(db.Integer, db.ForeignKey('event.eventId'))
    
    
-
-
 
 
 
@@ -53,5 +53,5 @@ class Comment(db.Model):
 
 
     #add the foreign keys
-    userId = db.Column(db.Integer, db.ForeignKey('userId'))
-    eventId = db.Column(db.Integer, db.ForeignKey('eventId'))
+    userId = db.Column(db.Integer, db.ForeignKey('users.userId'))
+    eventId = db.Column(db.Integer, db.ForeignKey('event.eventId'))
