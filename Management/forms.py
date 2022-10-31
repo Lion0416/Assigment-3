@@ -1,7 +1,9 @@
 
 from flask_wtf import FlaskForm
-from wtforms.fields import TextAreaField,SubmitField, StringField, PasswordField
-from wtforms.validators import InputRequired, Length, Email, EqualTo
+from datetime import datetime, date
+from wtforms.fields import TextAreaField,SubmitField, StringField, PasswordField,DateField,TimeField,SelectField
+
+from wtforms.validators import InputRequired, Length, Email, EqualTo,DataRequired,ValidationError
 
 
 #creates the login information
@@ -21,3 +23,19 @@ class RegisterForm(FlaskForm):
 
     #submit button
     submit = SubmitField("Register")
+
+#this is for register form
+class EventForm(FlaskForm):
+    event_name = StringField("Event Name", validators=[InputRequired('Enter event name')])
+    event_start_date = DateField(label='startdate',format="%Y-%m-%d",validators = [DataRequired('please select event startdate')])
+    event_end_date = DateField(label='enddate',format="%Y-%m-%d",validators = [DataRequired('please select event enddate')])
+    event_start_time = TimeField(label='starttime')
+    event_end_time = TimeField(label='endtime')
+    event_type = SelectField(label='type')
+    event_state = SelectField(label='states')
+
+
+
+
+
+    
