@@ -16,14 +16,14 @@ class User(db.Model, UserMixin):
 
 class Event(db.Model):
     __tablename__ = 'event'
-    eventId = db.Column(db.Integer, primary_key=True, nullable=False)
+    eventid = db.Column(db.Integer, primary_key=True, nullable=False)
     eventName = db.Column(db.String(80))
     eventstartDate = db.Column(db.Date, nullable=False)
     eventstartTime = db.Column(db.Time, nullable=False)
     eventendDate = db.Column(db.Date, nullable=False)
     eventendTime = db.Column(db.Time, nullable=False)
-    eventType = db.Column(db.String(80))
-    eventStates = db.Column(db.String(80))
+    eventType = db.Column(db.Integer, db.ForeignKey('type.typeid'))
+    eventStates = db.Column(db.Integer, db.ForeignKey('states.statesid'))
     description = db.Column(db.String(200))
     ticketQuantity = db.Column(db.Integer)
     ticketPrice = db.Column(db.Integer)
@@ -33,18 +33,30 @@ class Event(db.Model):
     comments = db.relationship('Comment', backref='event')
 
 
+class Type(db.Model):
+    __tablename__= 'type'
+    typeid = db.Column(db.Integer, primary_key=True, nullable=False)
+    type = db.Column(db.String(80))
 
+    event = db.relationship('Event', backref = 'eventtype')
+
+class States(db.Model):
+    __tablename__= 'states'
+    statesid = db.Column(db.Integer, primary_key=True, nullable=False)
+    states = db.Column(db.String(80))
+
+    event = db.relationship('Event', backref = 'eventstates')
 
 class Order(db.Model):
     __tablename__ = 'order'
-    orderId = db.Column(db.Integer, primary_key=True, nullable=False)
+    orderid = db.Column(db.Integer, primary_key=True, nullable=False)
     ticketQuantity = db.Column(db.Integer)
     totalCost = db.Column(db.Integer)
     orderDate = db.Column(db.DateTime, nullable=False)
 
     #add the foreign keys
-    userId = db.Column(db.Integer, db.ForeignKey('users.id'))
-    eventId = db.Column(db.Integer, db.ForeignKey('event.eventId'))
+    userid = db.Column(db.Integer, db.ForeignKey('users.id'))
+    eventid = db.Column(db.Integer, db.ForeignKey('event.eventid'))
    
    
 
@@ -58,5 +70,5 @@ class Comment(db.Model):
 
 
     #add the foreign keys
-    userId = db.Column(db.Integer, db.ForeignKey('users.id'))
-    eventId = db.Column(db.Integer, db.ForeignKey('event.eventId'))
+    userid = db.Column(db.Integer, db.ForeignKey('users.id'))
+    eventid = db.Column(db.Integer, db.ForeignKey('event.eventid'))

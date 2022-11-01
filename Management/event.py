@@ -10,13 +10,14 @@ from . import db
 from werkzeug.utils import secure_filename
 from flask_login import login_required, current_user
 import os
+from .models import Type,States
 
 bp = Blueprint('event', __name__, url_prefix='/event')
 
 @bp.route('/<eventid>')
 def show(id):
 
-    return render_template('destinations/show.html')
+  return render_template('destinations/show.html')
 
 
 @bp.route('/create', methods = ['GET', 'POST'])
@@ -24,19 +25,27 @@ def show(id):
 def create():
   print('Method type: ', request.method)
   form = EventForm()
+  form.event_type.choices = [(type.typeid,type.type) for type in Type.query.all()]
+  form.event_state.choices = [(states.statesid,states.states) for states in States.query.all()]
   
   if form.validate_on_submit():
     #call the function that checks and returns image
     db_file_path=check_upload_file(form)
-    print(form.event_start_time)
     
-    #event_start_time=datetime.strptime(str(form.event_start_time.data), '%H:%M')
-    #event_end_time=datetime.strptime(str(form.event_end_time.data), '%H:%M')
-    event=Event(eventName=form.event_name.data,description=form.description.data,
-    eventstartDate=form.event_start_date,eventendDate=form.event_end_date,
-    eventstartTime=form.event_start_time.data,eventendTime=form.event_end_time.data,
-    eventType=form.event_type,eventStates=form.event_state,
-    eventImage=db_file_path,ticketPrice=form.ticketPrice.data,ticketQuantity=form.ticketQuantity.data)
+
+    
+    event=Event(
+      eventName=form.event_name.data,
+      description=form.description.data,
+      eventstartDate=form.event_start_date.data,
+      eventendDate=form.event_end_date.data,
+      eventstartTime=form.event_start_time.data,
+      eventendTime=form.event_end_time.data,
+      eventType=form.event_type.data,
+      eventStates=form.event_state.data,
+      eventImage=db_file_path,
+      ticketPrice=form.ticketPrice.data,
+      ticketQuantity=form.ticketQuantity.data)
     # add the object to the db session
     db.session.add(event)
     # commit to the database
