@@ -1,4 +1,5 @@
 from asyncio import events
+from tkinter import EventType
 from flask import ( 
     Blueprint, flash, render_template, request, url_for, redirect
 ) 
@@ -28,6 +29,7 @@ def create():
     event=Event(eventName=form.event_name.data,description=form.description.data,
     eventstartDate=form.event_start_date,eventendDate=form.event_end_date,
     eventstartTime=form.event_start_time,eventendTime=form.event_end_time,
+    eventType=form.event_type,eventStates=form.event_state,
     image=db_file_path,ticketPrice=form.ticketPrice.data,ticketquantity=form.ticketQuantity.data)
     # add the object to the db session
     db.session.add(event)
