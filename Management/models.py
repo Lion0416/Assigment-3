@@ -18,9 +18,9 @@ class Event(db.Model):
     __tablename__ = 'event'
     eventId = db.Column(db.Integer, primary_key=True, nullable=False)
     eventName = db.Column(db.String(80))
-    eventstartDate = db.Column(db.DateTime, nullable=False)
+    eventstartDate = db.Column(db.Date, nullable=False)
     eventstartTime = db.Column(db.Time, nullable=False)
-    eventendtDate = db.Column(db.DateTime, nullable=False)
+    eventendDate = db.Column(db.Date, nullable=False)
     eventendTime = db.Column(db.Time, nullable=False)
     eventType = db.Column(db.String(80))
     eventStates = db.Column(db.String(80))

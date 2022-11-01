@@ -30,7 +30,7 @@ def create():
     eventstartDate=form.event_start_date,eventendDate=form.event_end_date,
     eventstartTime=form.event_start_time,eventendTime=form.event_end_time,
     eventType=form.event_type,eventStates=form.event_state,
-    image=db_file_path,ticketPrice=form.ticketPrice.data,ticketquantity=form.ticketQuantity.data)
+    eventImage=db_file_path,ticketPrice=form.ticketPrice.data,ticketQuantity=form.ticketQuantity.data)
     # add the object to the db session
     db.session.add(event)
     # commit to the database
