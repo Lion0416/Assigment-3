@@ -1,5 +1,6 @@
 from asyncio import events
 from tkinter import EventType
+from datetime import datetime, date
 from flask import ( 
     Blueprint, flash, render_template, request, url_for, redirect
 ) 
@@ -23,12 +24,17 @@ def show(id):
 def create():
   print('Method type: ', request.method)
   form = EventForm()
+  
   if form.validate_on_submit():
     #call the function that checks and returns image
     db_file_path=check_upload_file(form)
+    print(form.event_start_time)
+    
+    #event_start_time=datetime.strptime(str(form.event_start_time.data), '%H:%M')
+    #event_end_time=datetime.strptime(str(form.event_end_time.data), '%H:%M')
     event=Event(eventName=form.event_name.data,description=form.description.data,
     eventstartDate=form.event_start_date,eventendDate=form.event_end_date,
-    eventstartTime=form.event_start_time,eventendTime=form.event_end_time,
+    eventstartTime=form.event_start_time.data,eventendTime=form.event_end_time.data,
     eventType=form.event_type,eventStates=form.event_state,
     eventImage=db_file_path,ticketPrice=form.ticketPrice.data,ticketQuantity=form.ticketQuantity.data)
     # add the object to the db session
@@ -54,6 +60,7 @@ def check_upload_file(form):
   #save the file and return the db upload path  
   fp.save(upload_path)
   return db_upload_path
+
 
 
 @bp.route('/<destination>/comment', methods = ['GET', 'POST'])  

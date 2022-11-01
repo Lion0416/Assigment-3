@@ -2,7 +2,8 @@
 from re import M
 from flask_wtf import FlaskForm
 from datetime import datetime, date
-from wtforms.fields import TextAreaField,SubmitField, StringField, PasswordField,DateField,TimeField,SelectField
+from traitlets import default
+from wtforms.fields import TextAreaField,SubmitField, StringField, PasswordField,DateField,TimeField,SelectField,DateTimeField
 from flask_wtf.file import FileRequired, FileField, FileAllowed
 from wtforms.validators import InputRequired, Length, Email, EqualTo,DataRequired
 
@@ -31,10 +32,10 @@ class RegisterForm(FlaskForm):
 ALLOWED_FILE = {'PNG','JPG','png','jpg'}
 class EventForm(FlaskForm):
     event_name = StringField("Event Name", validators=[InputRequired('Enter event name')])
-    event_start_date = DateField(label='startdate',format="%Y-%m-%d",validators = [DataRequired('please select event startdate')])
-    event_end_date = DateField(label='enddate',format='%Y-%m-%d',validators = [DataRequired('please select event enddate')])
-    event_start_time = TimeField(label='starttime',format='%H:%M')
-    event_end_time = TimeField(label='endtime',format='%H:%M')
+    event_start_date = DateField(label='startdate',validators = [DataRequired('please select event startdate')])
+    event_end_date = DateField(label='enddate',validators = [DataRequired('please select event enddate')])
+    event_start_time = TimeField(label='starttime',default=datetime.now)
+    event_end_time = TimeField(label='endtime',default=datetime.now)
     event_type = SelectField(label='type',choices=['Genre - Rock','Genre - Pop','Genre - Electronic','Genre - Dance','Genre - Country','Community','Comedy'])
     event_state = SelectField(label='states', choices=['Upcoming', 'Selling Out', 'Sold Out'])
     eventimage = FileField('Event Image', validators=[
