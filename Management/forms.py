@@ -3,7 +3,7 @@ from flask_wtf import FlaskForm
 from datetime import datetime, date
 from wtforms.fields import TextAreaField,SubmitField, StringField, PasswordField,DateField,TimeField,SelectField
 from flask_wtf.file import FileRequired, FileField, FileAllowed
-from wtforms.validators import InputRequired, Length, Email, EqualTo,DataRequired, FileRequired
+from wtforms.validators import InputRequired, Length, Email, EqualTo,DataRequired
 
 
 #creates the login information
@@ -34,7 +34,7 @@ class EventForm(FlaskForm):
     event_end_date = DateField(label='enddate',format="%Y-%m-%d",validators = [DataRequired('please select event enddate')])
     event_start_time = TimeField(label='starttime')
     event_end_time = TimeField(label='endtime')
-    event_type = SelectField(label='type')
+    event_type = SelectField(label='type',choices=['Genre - Rock','Genre - Pop','Genre - Electronic','Genre - Dance','Genre - Country','Community','Comedy'])
     event_state = SelectField(label='states', choices=['Upcoming', 'Selling Out', 'Sold Out'])
     eventimage = FileField('Event Image', validators=[
     FileRequired(message='Image cannot be empty'),
@@ -42,8 +42,12 @@ class EventForm(FlaskForm):
     description = TextAreaField('Description', validators=[InputRequired()])
     ticketPrice = StringField('Ticket Price', validators=[InputRequired()])
     ticketQuantity = StringField('Ticket Quantity', validators=[InputRequired()])
+    submit = SubmitField('Create')
 
 
-
+#User comment
+class CommentForm(FlaskForm):
+  text = TextAreaField('Comment', [InputRequired()])
+  submit = SubmitField('Create')
 
     
