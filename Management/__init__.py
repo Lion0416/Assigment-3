@@ -1,15 +1,19 @@
+from distutils.log import error
+from xml.dom.pulldom import ErrorHandler
 from flask import Flask,render_template
 from flask_bootstrap import Bootstrap5
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from sentry_sdk.integrations.flask import FlaskIntegration
+
 
 
 
 db=SQLAlchemy()
-
+app=Flask(__name__)
 
 def create_app(): 
-    app=Flask(__name__)
+   
     app.debug = True
     app.secret_key="12345"
 
@@ -46,10 +50,16 @@ def create_app():
     from . import auth
     app.register_blueprint(auth.bp)
     
-
-
+    
+    
     return app
     
 @app.errorhandler(404) 
-def not_found(e): 
-    return render_template("404.html")
+def hander_404_error(e):
+    print(e)
+    return render_template('404.html')
+    
+@app.errorhandler(500)
+def hander_500_error(e):
+    print(e)
+    return render_template('500.html')
