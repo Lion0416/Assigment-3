@@ -1,12 +1,271 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+<!--landingpage-->
+{% extends 'base.html' %}
+
+{% block header %}
+<section>
+    <div class="jumbotron text-white" style="background-image: url(img/indexJumbotronBackground.png)">
+        <div class="jumbotron_contents">
+            <div class="d-lg-inline p-2 pr-4 text-white">
+                <h2 class="d-none d-lg-inline text-left">Upcoming Music Events</h2>
+                <h2 class="d-none d-sm-block d-lg-none text-center display pb-4">Upcoming Music Events</h2>
+                <h3 class="d-block d-sm-none text-center display pb-4">Upcoming Music Events</h2>
+            </div>
+            <div class="d-md-inline p-2 text-white">
+                <select class="
+                d-block mx-auto col-10 my-2 
+                d-md-inline col-md-5 mx-md-4 
+                col-lg-3 mx-lg-3 
+                col-xl-3 mx-xl-3 
+                custom-select custom-select-sm rounded-pill mx-auto">
+                    <option value="placeholder" disabled selected>Sort By...</option>
+                    <option value="none">None</option>
+                    <option value="most-recent">Upcoming Soon</option>
+                    <option value="furthest-from-me">Recently Listed</option>
+                    <option value="closest-to-me">Closest To Me</option>
+                    <option value="furthest-from-me">Furthest From Me</option>
+                    <option value="furthest-from-me">Cheapest</option>
+                    <option value="furthest-from-me">Most Expensive</option>
+                </select>
+                <input list="encodings" class="
+                d-block mx-auto col-10 mt-4 
+                d-md-inline col-md-5 mx-md-4 mt-md-0
+                col-lg-3 mx-lg-3 
+                col-xl-3 mx-xl-2 
+                custom-select custom-select-sm rounded-pill mx-auto" placeholder="Refine By...">
+                <datalist id="encodings">
+                    <option>Genre - Rock</option>
+                    <option>Genre - Pop</option>
+                    <option>Genre - Electronic</option>
+                    <option>Genre - Dance</option>
+                    <option>Genre - Country</option>
+                    <option>Community</option>
+                    <option>Comedy</option>
+                </datalist>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center col-sm-6 d-sm-flex justify-content-start"><strong>Showing 4 Results</strong>
+            </div>
+            <div class="col-12 text-center col-sm-6 d-sm-flex justify-content-end">
+                <p><em>Page 1 of</em>
+                    <a href="index.html" class="btn btn-outline-secondary mx-2">1</a>
+                    <a href="index.html" class="btn btn-outline-secondary mx-2">2</a>
+                    <a href="index.html" class="btn btn-outline-secondary mx-2">3</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block content %}  
+<article>
+    <div class="container mt-4">
+        <!--ALL EVENT INFORMATION WAS GATHERED FROM INFORMATION FROM THE FORTITUDE MUSIC HALL 'UPCOMING EVENTS' PAGE (12/09/2022)-->
+        <!--Chats Card-->
+        <div class="card flex-md-row mb-4 shadow h-md-250 bg-white">
+            <h4>
+                <span class="badge badge-pill badge-warning position-absolute" style="right: -10px; top: -10px;">
+                    <img src="/img/icons/exclamation-triangle.svg" alt="Positive Crowd Feedback" class="d-inline mr-2"
+                        style="width: 17px;">
+                    <p class="d-inline">Selling Fast!</p>
+                </span>
+            </h4>
+            <div class="card-body d-flex flex-column align-items-start">
+                <a href="eventdetails.html" class="text-reset text-decoration-none stretched-link">
+                    <div class="row">
+                        <div class="col-md-4 mt-1">
+                            <figure>
+                                <img src="/img/events/theChatsEventPicture.png" alt="The Chats Tour Image"
+                                    class="d-none d-md-inline rounded w-100 m-auto">
+                                <img src="/img/events/theChatsEventPicture.png" alt="The Chats Tour Image"
+                                    class="d-block d-md-none rounded w-75 m-auto">
+                                <figcaption>
+                                    <h5 class="text-white text-uppercase center-block mb-3 d-flex text-center">
+                                        <span class="badge bg-dark p-2 mt-3 col-12"><strong>Aussie Punk
+                                                Rock</strong></span>
+                                    </h5>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="col-md-8 text-center">
+                            <h3 class="mb-2 mt-md-3 text-info mb-sm-4 mb-lg-6">The Chats - "Get F***ed", The Australian
+                                Tour</h3>
+                            <h4 class="mb-2 text-muted mb-4">Live at the Fortitude Music Hall</h4>
+                            <p class="mb-2 text-muted mb-4">7:00PM, Saturday 17th September, 2022
+                            </p>
+                            <p class="card-text mb-auto d-none d-lg-inline">
+                                Hands down the world's greatest post-millennial punk-rock group, <strong>The
+                                    Chats</strong> have skipped past the COVID-19 Pandemic to emerge tougher, faster,
+                                funnier, and more riotous and armed with a brand new album, <strong>GET F***ED!</strong>
+                            </p>
+                        </div>
+                        <div class="card-text mb-auto d-inline d-lg-none">
+                            <p class="text-center">
+                                Hands down the world's greatest post-millennial punk-rock group, <strong>The
+                                    Chats</strong> have skipped past the COVID-19 Pandemic to emerge tougher, faster,
+                                funnier, and more riotous and armed with a brand new album, <strong>GET F***ED!</strong>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!--End Chats Card-->
+        <!--The Smith Street Band Card-->
+        <div class="card flex-md-row mb-4 shadow h-md-250 bg-white">
+            <h4>
+                <span class="badge badge-pill badge-success position-absolute" style="right: -10px; top: -10px;">
+                    <img src="/img/icons/hand-thumbs-up-fill.svg" alt="Negative Crowd Feedback" class="d-inline mr-2"
+                        style="width: 17px;">
+                    <p class="d-inline">Tickets Available</p>
+                </span>
+            </h4>
+            <div class="card-body d-flex flex-column align-items-start">
+                <a href="eventdetails.html" class="text-reset text-decoration-none stretched-link">
+                    <div class="row">
+                        <div class="col-md-4 mt-1">
+                            <figure>
+                                <img src="/img/events/theSmithStreetBandEventPicture.jpg"
+                                    alt="The Smith Street Band Tour Image"
+                                    class="d-none d-md-inline rounded w-100 m-auto">
+                                <img src="/img/events/theSmithStreetBandEventPicture.jpg"
+                                    alt="The Smith Street Band Tour Image"
+                                    class="d-block d-md-none rounded w-75 m-auto">
+                                <figcaption>
+                                    <h5 class="text-white text-uppercase center-block d-flex text-center">
+                                        <span class="badge bg-dark p-2 mt-3 col-12"><strong>Aussie Rock</strong></span>
+                                    </h5>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="col-md-8 text-center d-inline">
+                            <h3 class="mb-2 mt-md-3 text-info mb-3">The Smith Street Band - "One More Tour"</h3>
+                            <h4 class="mb-2 text-muted mb-4">Live at the Fortitude Music Hall</h4>
+                            <p class="mb-2 text-muted mb-4">7:00PM, Friday 23rd September, 2022</p>
+                            <p class="card-text d-none d-lg-inline">
+                                <strong>The Smith Street Band</strong> are thrilled to announce a return to their roots.
+                                <em>“Australia! This is our first big proper tour in what feels like forever! We are so
+                                    excited to be going all over the country playing again! See you all soon!”</em>
+                            </p>
+                        </div>
+                        <div class="card-text d-inline d-lg-none">
+                            <p class="text-center">
+                                <strong>The Smith Street Band</strong> are thrilled to announce a return to their roots.
+                                <em>“Australia! This is our first big proper tour in what feels like forever! We are so
+                                    excited to be going all over the country playing again! See you all soon!”</em>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!--End The Smith Street Band Card-->
+        <!--Pub Choir Card-->
+        <div class="card flex-md-row mb-4 shadow h-md-250 bg-white">
+            <h4>
+                <span class="badge badge-pill badge-danger position-absolute" style="right: -10px; top: -10px;">
+                    <img src="/img/icons/hand-thumbs-down-fill.svg" alt="Negative Crowd Feedback" class="d-inline mr-2"
+                        style="width: 17px;">
+                    <p class="d-inline">Sold Out</p>
+                </span>
+            </h4>
+            <div class="card-body d-flex flex-column align-items-start">
+                <a href="eventdetails.html" class="text-reset text-decoration-none stretched-link">
+                    <div class="row">
+                        <div class="col-md-4 d-inline mt-1">
+                            <figure>
+                                <img src="/img/events/pubChoirEventPicture.jpg" alt="Pub Choir Brisbane Event Image"
+                                    class="d-none d-md-inline rounded w-100 m-auto">
+                                <img src="/img/events/pubChoirEventPicture.jpg" alt="Pub Choir Brisbane Event Image"
+                                    class="d-block d-md-none rounded w-75 m-auto">
+                                <figcaption>
+                                    <h5 class="text-white text-uppercase center-block d-flex text-center">
+                                        <span class="badge bg-dark p-2 mt-3 col-12"><strong>Community
+                                                Singing</strong></span>
+                                    </h5>
+                                </figcaption>
+                            </figure>
+
+                        </div>
+                        <div class="col-md-8 text-center d-inline">
+                            <h3 class="mb-2 mt-md-3 text-info mb-3">Pub Choir - "Australia's Biggest Singalong"</h3>
+                            <h4 class="mb-2 text-muted mb-4">Live at the Fortitude Music Hall</h4>
+                            <p class="mb-2 text-muted mb-4">6:00PM, Wednesday 28th September, 2022</p>
+                            <p class="card-text d-none d-lg-inline">
+                                So you think you’re a great singer? Neither do we. But that’s not the point! <strong>Pub
+                                    Choir Brisbane</strong> is here to prove that being dead average at singing should
+                                never stop you from having a lovely time. In 90 minutes, experience the magic as an
+                                entire crowd of randos is transformed into an electrifying, incredible choir.
+                            </p>
+                        </div>
+                        <div class="card-text d-inline d-lg-none">
+                            <p class="text-center">
+                                So you think you’re a great singer? Neither do we. But that’s not the point! <strong>Pub
+                                    Choir Brisbane</strong> is here to prove that being dead average at singing should
+                                never stop you from having a lovely time. In 90 minutes, experience the magic as an
+                                entire crowd of randos is transformed into an electrifying, incredible choir.
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!--End Pub Choir Card-->
+        <!--Leon Bridges Tour Card-->
+        <div class="card flex-md-row mb-4 shadow h-md-250 bg-white">
+            <h4>
+                <span class="badge badge-pill badge-danger position-absolute" style="right: -10px; top: -10px;">
+                    <img src="/img/icons/x-circle-fill.svg" alt="Positive Crowd Feedback" class="d-inline mr-2"
+                        style="width: 17px;">
+                    <p class="d-inline">Cancelled</p>
+                </span>
+            </h4>
+            <div class="card-body d-flex flex-column align-items-start">
+                <a href="eventdetails.html" class="text-reset text-decoration-none stretched-link">
+                    <div class="row">
+                        <div class="col-md-4 d-inline pt-md-3 pt-lg-4 pt-xl-2">
+                            <figure>
+                                <img src="/img/events/leonBridgesTourPicture.jpg" alt="Pub Choir Brisbane Event Image"
+                                    class="d-none d-md-inline rounded w-100 m-auto">
+                                <img src="/img/events/leonBridgesTourPicture.jpg" alt="Pub Choir Brisbane Event Image"
+                                    class="d-block d-md-none rounded w-75 m-auto">
+                                <figcaption>
+                                    <h5 class="text-white text-uppercase center-block d-flex text-center">
+                                        <span class="badge bg-dark p-2 mt-3 col-12"><strong>Electronic
+                                                Dance</strong></span>
+                                    </h5>
+                                </figcaption>
+                            </figure>
+
+                        </div>
+                        <div class="col-md-8 text-center d-inline">
+                            <h3 class="mb-2 mt-md-3 text-info mb-3">Leon Bridges - The Boundless Tour</h3>
+                            <h4 class="mb-2 text-muted mb-4">Live at the Fortitude Music Hall</h4>
+                            <p class="mb-2 text-muted mb-4">7:30PM, Saturday 1st October, 2022</p>
+                            <p class="card-text mb-auto d-none d-lg-inline">
+                                <strong>Leon Bridges</strong> returns to Aussie stages with The Boundless Tour. The
+                                Grammy Award-winning R&B artist and songwriter brings to the stage a career spanning
+                                experiences, inspirations, and award-winning catalogue of songs.
+                            </p>
+                        </div>
+                        <div class="card-text mb-auto d-inline d-lg-none">
+                            <p class="text-center">
+                                <strong>Leon Bridges</strong> returns to Aussie stages with The Boundless Tour. The
+                                Grammy Award-winning R&B artist and songwriter brings to the stage a career spanning
+                                experiences, inspirations, and award-winning catalogue of songs.
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!--End Leon Bridges Tour Card-->
+    </div>
+</article>
+{% endblock %}
