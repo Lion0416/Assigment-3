@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,render_template
 from flask_bootstrap import Bootstrap5
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
@@ -50,5 +50,6 @@ def create_app():
 
     return app
     
-
-
+@app.errorhandler(404) 
+def not_found(e): 
+    return render_template("404.html")

@@ -64,3 +64,9 @@ def register():
     #the else is called when there is a get message
     else:
         return render_template('user.html', form=register, heading='Register')
+
+@bp.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return 'You have been logged out'

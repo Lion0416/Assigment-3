@@ -14,13 +14,13 @@ from .models import Type,States
 
 bp = Blueprint('event', __name__, url_prefix='/event')
 
-@bp.route('/<eventid>')
+@bp.route('/<id>')
 def show(id):
-  event = Event.query.filter_by(eventid= id).first()
+  event = Event.query.filter_by(eventid = id).first()
 
   cform = CommentForm()
 
-  return render_template('destinations/show.html')
+  return render_template('events/show.html', event = event, form = cform)
 
 
 @bp.route('/create', methods = ['GET', 'POST'])
@@ -75,15 +75,15 @@ def check_upload_file(form):
 
 
 
-@bp.route('/<destination>/comment', methods = ['GET', 'POST'])  
+@bp.route('/<event>/comment', methods = ['GET', 'POST'])  
 @login_required
 def comment(event):  
     form = CommentForm()  
-    #get the destination object associated to the page and the comment
-    event_obj = Event.query.filter_by(id=event).first()  
+    
+    event_obj = Event.query.filter_by(eventid=event).first()  
     if form.validate_on_submit():  
       #read the comment from the form
-      comment = Comment(text=form.text.data,  
+      comment = Comment(comment=form.text.data,  
                         event=event_obj,
                         user=current_user) 
       #here the back-referencing works - comment.destination is set
@@ -91,8 +91,7 @@ def comment(event):
       db.session.add(comment) 
       db.session.commit() 
 
-      #flashing a message which needs to be handled by the html
-      #flash('Your comment has been added', 'success')  
+       
       print('Your comment has been added', 'success') 
-    # using redirect sends a GET request to destination.show
-    return redirect(url_for('destination.show', id=event))
+    # using redirect sends a GET request to event.show
+    return redirect(url_for('event.show', id=event))
