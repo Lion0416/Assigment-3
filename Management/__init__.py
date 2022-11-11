@@ -2,7 +2,7 @@
 from distutils.log import error
 from xml.dom.pulldom import ErrorHandler
 
-from flask import Flack
+from flask import Flask
 
 from flask import Flask,render_template
 
