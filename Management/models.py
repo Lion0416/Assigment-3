@@ -7,6 +7,7 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     userName = db.Column(db.String(100), index=True, unique=True, nullable=False)
     emailid = db.Column(db.String(100), index=True, unique=True, nullable=False)
+    contectNumber = db.Column(db.String(100))
     password_hash = db.Column(db.String(255), nullable=False)
 
     user = db.relationship('Order', backref='user')
