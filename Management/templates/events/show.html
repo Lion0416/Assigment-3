@@ -37,6 +37,147 @@
                             </div> 
                         </div>
                     </div>
+                    <div class="row">
+                        <figure class="col-md-6">
+                            <img src={{event.eventImage}} alt="Event image"
+                                class="d-none d-md-inline rounded w-100 m-auto">
+                            <div class="card-comment-column mt-4 d-block">
+                               
+                                <div class="d-flex flex-start mb-4">
+                                    <div class="card w-100">
+                                        <div class="card-body shadow border-light rounded p-4 bg-white"
+                                            style="background-image: url(./img/comments-card-background.png); background-size: 50px; background-repeat: no-repeat; background-position: 95% 20px;">
+                                            <div class="row">
+                                                <img class="rounded-circle shadow-1-strong me-3 ml-2" src="./img/icons/people/person2.jpg"
+                                                    alt="avatar" width="55" height="55" />
+                                                <div class="d-inline ml-4 my-auto">
+                                                    <h5>Dipper_4</h5>
+                                                    <p class="small">14/09/22 at 10:41AM</p>
+                                                </div>
+                                            </div>
+                                            <p class="mt-3 text-center">Not a huge live music fan, but The Chats are unmissable and iconic.
+                                                This event will be huge! &#x1F44F; &#x1F44F; &#x1F44F; </p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="row mx-3">
+                                                        <a href="#!" class="link-muted me-2 text-decoration-none text-reset"><img
+                                                                src="./img/icons/hand-thumbs-up-fill-black.svg" alt="" width="20"
+                                                                height="20" class="pr-2">
+                                                            <p class="d-inline mr-5">470</p>
+                                                        </a>
+                                                        <a href="#!" class="link-muted me-2 text-decoration-none text-reset"><img
+                                                                src="./img/icons/hand-thumbs-down-fill-black.svg" alt="" width="26"
+                                                                height="26" class="pr-2">
+                                                            <p class="d-inline mr-5">8</p>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-start mb-3">
+                                    <div class="card w-100">
+                                        <div class="card-body shadow border-light rounded p-4 bg-light">
+                                            <div class="row">
+                                                <img class="rounded-circle shadow-1-strong me-3 mb-2 my-auto d-md-block mx-auto mb-md-3 d-xl-flex justify-content-center"
+                                                    src="./img/icons/person-circle.svg" alt="avatar" width="55" height="55" />
+                                                <div class="d-inline ml-xl-4 my-auto">
+                                                    <textarea class="form-control d-xl-none" id="textAreaExample" rows="5" cols="30"
+                                                        style="background: #fff;" placeholder="Leave a Comment..."></textarea>
+                                                    <textarea class="form-control d-none d-xl-inline" id="textAreaExample" rows="3"
+                                                        cols="49" style="background: #fff;" placeholder="Leave a Comment..."></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex justify-content-end">
+                                                <button
+                                                    class="btn btn-sm btn-outline-info rounded rounded-pill mr-2 mt-2 px-3">Cancel</button>
+                                                <a href="login.html"
+                                                    class="btn btn-sm btn-outline-info bg-info text-white rounded rounded-pill mr-3 mt-2 px-3"><strong>Post
+                                                        Comment</strong></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </figure>
+                    
+                        <div class="col-6 d-none d-md-inline">
+                            <div class="card shadow mb-4">
+                                <div class="text-center">
+                                    <h3 class="mb-2 mt-md-3 text-info mb-sm-4 mb-lg-6">{{event.eventName}}</h3>
+                                    <h4 class="mb-2 text-muted mb-4">Live at the {{event.eventLocation}}</h4>
+                                    <p class="mb-2 text-muted mb-4">{{event.eventstartTime}} ,{{event.eventstartDate}} to {{event.eventendTime}},{{event.eventendDate}}</p>
+                                    <p class="card-text mt-4 px-4 pb-4 border-bottom">
+                                        {{event.description}}
+                                    </p>
+                                    <div class="row">
+                                        <div class="d-inline col-6 text-center">
+                                            <p class="pl-4">Ticket Price: <strong>${{event.ticketPrice}}</strong></h4>
+                                            <p class="pl-4">Tickets Sold: 1,200 /{{event.ticketQuantity}}</h4>
+                                        </div>
+                                        <div class="d-inline col-6">
+                                            <a href="/login.html" class="text-decoration-none">
+                                                <button class="btn btn-outline-info rounded bg-info text-white px-4 py-2 my-2 mr-3"><strong>Book
+                                                        Ticket</strong></button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shadow mb-4" style="background-color: rgba(23, 162, 184, 0.1);;">
+                                <div class="text-center col-12">
+                                    <h3 class="mb-2 mt-md-3 mb-sm-4 mb-lg-6">You might like these <span class="text-muted">Similar
+                                            Events</span></h3>
+                                    <div class="container row justify-content-center">
+                                        <div class="card d-inline col-12 mt-2 mb-4" style="left: 15px">
+                                            <a href="eventdetailsloggedin.html" class="text-decoration-none">
+                                                <h5 class="text-info mt-2">The Smith Street Band - "One More Tour"</h5>
+                                                <p class="mb-2 text-muted">7:00PM, Friday 23rd September, 2022</p>
+                                                <p class="mb-2 text-muted">Fortitude Music Hall</p>
+                                                <img class="rounded w-50" src="/img/events/theSmithStreetBandEventPicture.jpg"
+                                                    alt="Smith Street Band Event">
+                                            </a>
+                                            <br>
+                                            <a class="btn btn-outline-secondary rounded-pill m-3" data-toggle="collapse"
+                                                href="#collapseContent1" role="button" aria-expanded="false"
+                                                aria-controls="collapseExample">
+                                                <img src="/img/icons/arrow-down.svg" alt="">
+                                                View Event Description
+                                            </a>
+                                            <div class="collapse mb-2" id="collapseContent1">
+                                                <strong>The Smith Street Band</strong> are thrilled to announce a return to their roots.
+                                                <em>“Australia! This is our first big proper tour in what feels like forever! We are so
+                                                    excited to be going all over the country playing again! See you all soon!”</em>
+                                            </div>
+                                        </div>
+                    
+                                        <div class="card d-inline col-12 mt-2 mb-4" style="left: 15px">
+                                            <a href="eventdetailsloggedin.html" class="text-decoration-none">
+                                                <h5 class="text-info mt-2">Pub Choir - "Australia's Biggest Singalong"</h5>
+                                                <p class="mb-2 text-muted">6:00PM, Wednesday 28th September, 2022</p>
+                                                <p class="mb-2 text-muted">Fortitude Music Hall</p>
+                                                <img class="rounded w-50" src="/img/events/pubChoirEventPicture.jpg" alt="Pub Choir Event">
+                                            </a>
+                                            <br>
+                                            <a class="btn btn-outline-secondary rounded-pill m-3" data-toggle="collapse"
+                                                href="#collapseContent2" role="button" aria-expanded="false"
+                                                aria-controls="collapseExample">
+                                                <img src="/img/icons/arrow-down.svg" alt="">
+                                                View Event Description
+                                            </a>
+                                            <div class="collapse mb-2" id="collapseContent2">
+                                                So you think you’re a great singer? Neither do we. But that’s not the point! <strong>Pub
+                                                    Choir Brisbane</strong> is here to prove that being dead average at singing should never
+                                                stop you from having a lovely time. In 90 minutes, experience the magic as an entire crowd
+                                                of randos is transformed into an electrifying, incredible choir.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     
 
