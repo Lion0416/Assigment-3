@@ -5,7 +5,7 @@ from flask_login import UserMixin
 class User(db.Model, UserMixin):
     __tablename__='users' # good practice to specify table name
     id = db.Column(db.Integer, primary_key=True, nullable=False)
-    userName = db.Column(db.String(100), index=True, unique=True, nullable=False)
+    userName = db.Column(db.String(100), index=True, nullable=False)
     emailid = db.Column(db.String(100), index=True, unique=True, nullable=False)
     contactNumber = db.Column(db.String(100))
     password_hash = db.Column(db.String(255), nullable=False)
@@ -25,6 +25,7 @@ class Event(db.Model):
     eventendTime = db.Column(db.Time, nullable=False)
     eventType = db.Column(db.Integer, db.ForeignKey('type.typeid'))
     eventStates = db.Column(db.Integer, db.ForeignKey('states.statesid'))
+    eventLocation = db.Column(db.String(200))
     description = db.Column(db.String(200))
     ticketQuantity = db.Column(db.Integer)
     ticketPrice = db.Column(db.Integer)
