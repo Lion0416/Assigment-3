@@ -67,16 +67,17 @@
 
 {% block content %}  
 
-    {%for event in events%}
+    {%for event,type,states in events%}
     <div class="container mt-4">
         <!--ALL EVENT INFORMATION WAS GATHERED FROM INFORMATION FROM THE FORTITUDE MUSIC HALL 'UPCOMING EVENTS' PAGE (12/09/2022)-->
         <!--Chats Card-->
         <div class="card flex-md-row mb-4 shadow h-md-250 bg-white">
             <h4>
                 <span class="badge badge-pill badge-warning position-absolute" style="right: -10px; top: -10px;">
-                    <img src="/img/icons/exclamation-triangle.svg" alt="Positive Crowd Feedback" class="d-inline mr-2"
+                    <img src="/icons/exclamation-triangle.svg" alt="Positive Crowd Feedback" class="d-inline mr-2"
                         style="width: 17px;">
-                    <p class="d-inline">Selling Fast!</p>
+                    
+                    <p class="d-inline">{{states.states}}</p>
                 </span>
             </h4>
             
@@ -91,7 +92,7 @@
                                     class="d-block d-md-none rounded w-75 m-auto">
                                 <figcaption>
                                     <h5 class="text-white text-uppercase center-block mb-3 d-flex text-center">
-                                        <span class="badge bg-dark p-2 mt-3 col-12"><strong>{{event}}</strong></span>
+                                        <span class="badge bg-dark p-2 mt-3 col-12"><strong>{{type.type}}</strong></span>
                                     </h5>
                                 </figcaption>
                             </figure>
@@ -102,16 +103,12 @@
                             <p class="mb-2 text-muted mb-4">{{event.eventstartDate}}
                             </p>
                             <p class="card-text mb-auto d-none d-lg-inline">
-                                Hands down the world's greatest post-millennial punk-rock group, <strong>The
-                                    Chats</strong> have skipped past the COVID-19 Pandemic to emerge tougher, faster,
-                                funnier, and more riotous and armed with a brand new album, <strong>GET F***ED!</strong>
+                                {{event.description}}
                             </p>
                         </div>
                         <div class="card-text mb-auto d-inline d-lg-none">
                             <p class="text-center">
-                                Hands down the world's greatest post-millennial punk-rock group, <strong>The
-                                    Chats</strong> have skipped past the COVID-19 Pandemic to emerge tougher, faster,
-                                funnier, and more riotous and armed with a brand new album, <strong>GET F***ED!</strong>
+                                {{event.description}}
                             </p>
                         </div>
                     </div>
