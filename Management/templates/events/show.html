@@ -96,16 +96,16 @@
                     </div>
                     <div class="card shadow mb-4 d-block d-md-none p-1">
                         <div class="text-center"> 
-                            <h3 class="mb-2 text-info my-4">The Chats - "Get F***ed", <br><span class="text-muted">The Australian Tour</span></h3>
-                            <h4 class="mb-2 text-muted mb-4">Live at the Fortitude Music Hall</h4>
-                            <p class="mb-2 text-muted mb-4">7:00PM, Saturday 17th September, 2022
+                            <h3 class="mb-2 text-info my-4">{{event.eventName}}</h3>
+                            <h4 class="mb-2 text-muted mb-4">{{event.eventLocation}}</h4>
+                            <p class="mb-2 text-muted mb-4">{{event.eventstartTime}}, {{event.startDate}}  <!--7:00PM, Saturday 17th September, 2022-->
                             </p>
                             <p class="card-text mt-4 px-4 pb-4 border-bottom">
-                            <strong>Get F***ed</strong> is everything you want another iconic Chats album to be: <em>fast, crass, and loaded with more instantly quotable Aussie idioms</em> than Crocodiles Dundee and Hunter put together. But it’d be wrong to say <strong>Get F***ed</strong> simply serves up sloppy seconds from their proverbial pub feed. This is a portrait of a changed band: Once the pride of the small Sunshine Coast surfing town of Coolum Beach, the Chats are now based 90 minutes south in the big city of Brisbane, a relocation that pays immediate dividends in the form of “I’ve Been Drunk in Every Pub in Brisbane,” which is kind of what Wire’s Pink Flag would sound like if all the lyrics were Yelp reviews. But the album is also their first without founding guitarist Josh “Pricey” Price, who played the grubby goofball foil to perpetually pent-up bassist and vocalist Eamon Sandwith. With Sandwith’s snarl now the uncontested focal point, the Chats sound both more agitated and absurd than ever. Like Sandwith’s already iconic bowl-cut/mullet combo, Get Fucked is militaristic severity up front, party in the back. <strong>This is definitely an event you don't want to miss.</strong>
+                            {{event.Description}}
                             </p>
                             <div class="row">
                                 <div class="d-inline col-6 text-center">
-                                    <p class="pl-4">Ticket Price: <strong>$79.99</strong></h4>
+                                    <p class="pl-4">Ticket Price: <strong>${{event.ticketPrice}}</strong></h4>
                                     <p class="pl-4">Tickets Sold: 1,200 / 2,000</h4>
                                 </div>
                                 <div class="d-inline col-6">
