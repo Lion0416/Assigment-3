@@ -16,7 +16,7 @@ bp = Blueprint('event', __name__, url_prefix='/event')
 
 @bp.route('/<id>')
 def show(id):
-  event = db.session.query(Event, Type, States).select_from(Event).join(Type).join(States).filter_by(eventid = id).first()
+  event = db.session.query(Event, Type, States).select_from(Event).join(Type).join(States).filter(Event.eventid == id).first()
   
 
   cform = CommentForm()
