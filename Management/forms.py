@@ -10,22 +10,22 @@ from wtforms.validators import InputRequired, Length, Email, EqualTo,DataRequire
 
 #creates the login information
 class LoginForm(FlaskForm):
-    user_name=StringField("User Name", validators=[InputRequired('Enter user name')])
-    password=PasswordField("Password", validators=[InputRequired('Enter user password')])
+    emailid=StringField("Email Address", validators=[InputRequired('Enter your Email Address')])
+    password=PasswordField("Password", validators=[InputRequired('Enter your Password')])
     submit = SubmitField("Login")
 
  # this is the registration form
 class RegisterForm(FlaskForm):
-    user_name=StringField("User Name", validators=[InputRequired()])
-    email_id = EmailField("Email Address", validators=[Email("Please enter a valid email")])
+    userName=StringField("User Name", validators=[InputRequired()])
+    emailid = EmailField("Email Address", validators=[Email("Please enter a valid email")])
     #linking two fields - password should be equal to data entered in confirm
-    password=PasswordField("Password", validators=[InputRequired(),
-                  EqualTo('confirm', message="Passwords should match")])
-    confirm = PasswordField("Confirm Password")
-    contact_number = StringField("Contact Number", validators=[InputRequired()])
-    residence_address =StringField("Address of Residence", validators=[InputRequired()])
+    password=PasswordField("Password", validators=[InputRequired()])
+    confirm=PasswordField("Confirm Password", validators=[InputRequired()])
+    contactNumber = StringField("Contact Number", validators=[InputRequired()])
+    address =StringField("Address of Residence", validators=[InputRequired()])
     #submit button
     submit = SubmitField("Register")
+
 
 
 
