@@ -77,13 +77,11 @@
                 <span class="badge badge-pill badge-warning position-absolute" style="right: -10px; top: -10px;">
                     <img src="/icons/exclamation-triangle.svg" alt="Positive Crowd Feedback" class="d-inline mr-2"
                         style="width: 17px;">
-                    
                     <p class="d-inline">{{states.states}}</p>
                 </span>
             </h4>
-            
             <div class="card-body d-flex flex-column align-items-start">
-                <a href="#" class="text-reset text-decoration-none stretched-link">
+                <a href="{{url_for('event.show', id=event.eventid)}}" class="stretched-link"></a>
                     <div class="row">
                         <div class="col-md-4 mt-1">
                             <figure>
@@ -103,17 +101,19 @@
                             <h4 class="mb-2 text-muted mb-4">{{event.eventLocation}}</h4>
                             <p class="mb-2 text-muted mb-4">{{event.eventstartDate}}
                             </p>
+                            
                             <p class="card-text mb-auto d-none d-lg-inline">
                                 {{event.description}}
-                                <a href="{{event.show', id=event.eventid}}" class="stretched-link"></a>
+                                
                             </p>
                         </div>
                         <div class="card-text mb-auto d-inline d-lg-none">
                             <p class="text-center">
                                 {{event.description}}
-                                <a href="{{event.show', id=event.eventid}}" class="stretched-link"></a>
+                                
                             </p>
                         </div>
+                        
                     </div>
                 </a>
             </div>
