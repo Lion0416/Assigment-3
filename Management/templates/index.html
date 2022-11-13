@@ -70,8 +70,6 @@
 
     {%for event,type,states in events%}
     <div class="container mt-4">
-        <!--ALL EVENT INFORMATION WAS GATHERED FROM INFORMATION FROM THE FORTITUDE MUSIC HALL 'UPCOMING EVENTS' PAGE (12/09/2022)-->
-        <!--Chats Card-->
         <div class="card flex-md-row mb-4 shadow h-md-250 bg-white">
             <h4>
                 <span class="badge badge-pill badge-warning position-absolute" style="right: -10px; top: -10px;">
@@ -99,27 +97,20 @@
                         <div class="col-md-8 text-center">
                             <h3 class="mb-2 mt-md-3 text-info mb-sm-4 mb-lg-6">{{event.eventName}}</h3>
                             <h4 class="mb-2 text-muted mb-4">{{event.eventLocation}}</h4>
-                            <p class="mb-2 text-muted mb-4">{{event.eventstartDate}}
-                            </p>
-                            
+                            <p class="mb-2 text-muted mb-4">{{event.eventstartDate}}</p>
                             <p class="card-text mb-auto d-none d-lg-inline">
                                 {{event.description}}
-                                
                             </p>
                         </div>
                         <div class="card-text mb-auto d-inline d-lg-none">
                             <p class="text-center">
                                 {{event.description}}
-                                
                             </p>
                         </div>
-                        
                     </div>
                 </a>
             </div>
         </div>
-      
-
     </div>
     {%endfor%}
 
