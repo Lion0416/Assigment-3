@@ -15,7 +15,7 @@ def index():
     #events = Event.query.all()
     events = db.session.query(Event, Type, States).select_from(Event).join(Type).join(States).all()
     
-    print(events)
+
     
     
     form = EventForm()
