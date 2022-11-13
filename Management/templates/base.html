@@ -18,12 +18,12 @@
       <a class="navbar-brand mr-lg-5" href="{{url_for('main.index')}}">Concert Finder Brisbane</a>
 
       <div class="search-wrapper position-relative ml-lg-5 pt-3 pt-sm-0 d-none d-md-block d-lg-none">
-          <form class="searchbar-wrapper form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="search" placeholder="Text Event Search" aria-label="Search">
-              <button class="btn position-absolute d-inline d-lg-none" type="submit" style="top: 5px; right: 10px;"><img src="{{url_for('static', filename='img/icons/search.svg')}}" alt=""></button>
-              <button class="btn position-absolute d-none d-lg-inline" type="submit" style="right: 10px;"><img src="{{url_for('static', filename='img/icons/search.svg')}}" alt=""></button>
-          </form>
-      </div>
+         <form class="searchbar-wrapper form-inline my-2 my-lg-0">
+             <input class="form-control mr-sm-2" type="search" placeholder="Text Event Search" aria-label="Search">
+             <button class="btn position-absolute d-inline d-lg-none" type="submit" style="top: 5px; right: 10px;"><img src="{{url_for('static', filename='image/icons/search.svg')}}" alt=""></button>
+             <button class="btn position-absolute d-none d-lg-inline" type="submit" style="right: 10px;"><img src="{{url_for('static', filename='image/icons/search.svg')}}" alt=""></button>
+         </form>
+     </div>
 
       <a href="{{ url_for('auth.login') }}" class="rounded-pill rounded-lg btn btn-outline-info mt-md-0 px-xl-10 text-center bg-info text-white d-none d-sm-block d-lg-none px-sm-5">Login</a>
 
@@ -32,11 +32,11 @@
       </button>
 
       <div class="search-wrapper position-relative d-block col-12 my-3 d-md-none">
-          <form class="searchbar-wrapper form-inline my-2 my-lg-0 col-12">
-              <input class="form-control mr-sm-2" type="search" placeholder="Text Event Search" aria-label="Search" style="width: 100%;">
-              <a href="index.html"><button class="btn position-absolute d-inline d-md-none" type="submit" style="top: 1px; right: 20px;"><img src="{{url_for('static', filename='img/icons/search.svg')}}" alt=""></button></a>
-          </form>
-      </div>
+         <form class="searchbar-wrapper form-inline my-2 my-lg-0 col-12">
+             <input class="form-control mr-sm-2" type="search" placeholder="Text Event Search" aria-label="Search" style="width: 100%;">
+             <a href="index.html"><button class="btn position-absolute d-inline d-md-none" type="submit" style="top: 1px; right: 20px;"><img src="{{url_for('static', filename='image/icons/search.svg')}}" alt=""></button></a>
+         </form>
+     </div>
       
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
          {% if current_user.is_authenticated %}
@@ -46,7 +46,7 @@
                   <a class="nav-link d-inline" href="{{url_for('main.index')}}">Home <span class="sr-only">(current)</span></a>
                </li>
                <li class="nav-item col-4 text-center">
-                  <a class="nav-link d-inline" href="eventcreation.html">Create Event</a>
+                  <a class="nav-link d-inline" href="{{url_for('event.create')}}">Create Event</a>
                </li>
                <li class="nav-item col-4 text-center">
                   <a class="nav-link d-inline" href="usereventcreationhistory.html">My Events</a>
@@ -61,7 +61,7 @@
                <a class="nav-link d-inline" href="{{url_for('main.index')}}">Home <span class="sr-only">(current)</span></a>
            </li>
            <li class="nav-item col-4 text-center">
-               <a class="nav-link d-inline" href="eventcreation.html">Create Event</a>
+               <a class="nav-link d-inline" href="{{url_for('event.create')}}">Create Event</a>
            </li>
            <li class="nav-item col-4 text-center">
                <a class="nav-link d-inline" href="usereventcreationhistory.html">My Events</a>
@@ -75,8 +75,8 @@
                   <div class="search-wrapper position-relative ml-lg-5 mt-1 pt-3 pt-sm-0 d-none d-lg-block">
                      <form class="searchbar-wrapper form-inline my-2 my-lg-0 mr-xl-6">
                         <input class="form-control mr-sm-2" type="search" placeholder="Text Event Search" aria-label="Search">
-                        <a href="#"><button class="btn position-absolute d-inline d-lg-none" type="submit" style="top: 5px; right: 10px;"><img src="{{url_for('static', filename='img/icons/search.svg')}}" alt=""></button></a>
-                        <a href="#"><button class="btn position-absolute d-none d-lg-inline" type="submit" style="top: 1px; right: 10px;"><img src="{{url_for('static', filename='img/icons/search.svg')}}" alt=""></button></a>
+                        <a href="#"><button class="btn position-absolute d-inline d-lg-none" type="submit" style="top: 5px; right: 10px;"><img src="{{url_for('static', filename='image/icons/search.svg')}}" alt=""></button></a>
+                        <a href="#"><button class="btn position-absolute d-none d-lg-inline" type="submit" style="top: 1px; right: 10px;"><img src="{{url_for('static', filename='image/icons/search.svg')}}" alt=""></button></a>
                      </form>
                   </div>
             </li>
@@ -116,8 +116,8 @@
                   <div class="search-wrapper position-relative ml-lg-5 mt-1 pt-3 pt-sm-0 d-none d-lg-block">
                      <form class="searchbar-wrapper form-inline my-2 my-lg-0 mr-xl-6">
                         <input class="form-control mr-sm-2" type="search" placeholder="Text Event Search" aria-label="Search">
-                        <a href="#"><button class="btn position-absolute d-inline d-lg-none" type="submit" style="top: 5px; right: 10px;"><img src="{{url_for('static', filename='img/icons/search.svg')}}" alt=""></button></a>
-                        <a href="#"><button class="btn position-absolute d-none d-lg-inline" type="submit" style="top: 1px; right: 10px;"><img src="{{url_for('static', filename='img/icons/search.svg')}}" alt=""></button></a>
+                        <a href="#"><button class="btn position-absolute d-inline d-lg-none" type="submit" style="top: 5px; right: 10px;"><img src="{{url_for('static', filename='image/icons/search.svg')}}" alt=""></button></a>
+                        <a href="#"><button class="btn position-absolute d-none d-lg-inline" type="submit" style="top: 1px; right: 10px;"><img src="{{url_for('static', filename='image/icons/search.svg')}}" alt=""></button></a>
                      </form>
                   </div>
             </li>

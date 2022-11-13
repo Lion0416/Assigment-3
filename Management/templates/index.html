@@ -4,7 +4,7 @@
 {% import "bootstrap/form.html" as wtf %}
 {% block header %}
 <section>
-    <div class="jumbotron text-white" style="background-image: url(img/indexJumbotronBackground.png)">
+    <div class="jumbotron text-white" style="background-image: url({{url_for('static', filename='image/indexJumbotronBackground.png')}}">
         <div class="jumbotron_contents">
             <div class="d-lg-inline p-2 pr-4 text-white">
                 <h2 class="d-none d-lg-inline text-left">Upcoming Music Events</h2>
@@ -52,7 +52,7 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-12 text-center col-sm-6 d-sm-flex justify-content-start"><strong>Showing 4 Results</strong>
+            <div class="col-12 text-center col-sm-6 d-sm-flex justify-content-start"><strong>Showing Event Results for {{current_user.userName}}</strong>
             </div>
             <div class="col-12 text-center col-sm-6 d-sm-flex justify-content-end">
                 <p><em>Page 1 of</em>

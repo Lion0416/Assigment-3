@@ -27,27 +27,27 @@ class RegisterForm(FlaskForm):
     submit = SubmitField("Register")
 
 
-
-
 #this is for register form
 ALLOWED_FILE = {'PNG','JPG','png','jpg'}
 
 class EventForm(FlaskForm):
     event_name = StringField("Event Name", validators=[InputRequired('Enter event name')])
-    event_start_date = DateField(label='startdate',validators = [DataRequired('please select event startdate')])
-    event_end_date = DateField(label='enddate',validators = [DataRequired('please select event enddate')])
-    event_start_time = TimeField(label='starttime')
-    event_end_time = TimeField(label='endtime')
+    event_start_date = DateField(label='Event Starting Date',validators = [DataRequired('please select event startdate')])
+    event_end_date = DateField(label='Event Ending Date',validators = [DataRequired('please select event enddate')])
+    event_start_time = TimeField(label='Event Starting Time')
+    event_end_time = TimeField(label='Event Ending Time')
     event_type = SelectField(label='type',choices=[])
     event_state = SelectField(label='states', choices=[])
-    eventimage = FileField('Event Image', validators=[
-    FileRequired(message='Image cannot be empty'),
-    FileAllowed(ALLOWED_FILE, message='Only supports png,jpg,JPG,PNG')])
+    eventimage = FileField('Upload an Event Image')
+    #eventimage = FileField('Upload an Event Image', validators=[FileRequired(message='An Image Must Be Selected to Create an Event'), FileAllowed(ALLOWED_FILE, message='Only supports png,jpg,JPG,PNG')])
+    #eventimage = FileField('Event Image', validators=[
+    #FileRequired(message='Image cannot be empty'),
+    #FileAllowed(ALLOWED_FILE, message='Only supports png,jpg,JPG,PNG')])
     event_location = StringField("Event Location", validators=[InputRequired('Enter event location')])
     description = TextAreaField('Description', validators=[InputRequired()])
     ticketPrice = StringField('Ticket Price', validators=[InputRequired()])
     ticketQuantity = StringField('Ticket Quantity', validators=[InputRequired()])
-    submit = SubmitField('Create')
+    submit = SubmitField('Publish Event')
 
 
 

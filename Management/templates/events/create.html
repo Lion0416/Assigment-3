@@ -5,12 +5,132 @@
     <div class="container">
         <div class="row mt-5">
             <div class="col-md-12">
-    
-                <h1>Add Event</h1>
-               
-    
-                {{wtf.render_form(form)}}
-    
+                <form action="" method="POST" enctype = "multipart/form-data">
+                    {{ form.hidden_tag() }}
+                    <div class="row d-lg-flex col-12">
+                        <div class="d-none d-lg-inline col-lg-5">
+                            <div class="card shadow border border-rounded p-3 mb-3">
+                                <div class="d-block text-center">
+                                    <div class="d-block">
+                                        <h3 class="mb-3 text-muted">Upload Event Image</h3>
+                                        <p class=""><em>Upload an enticing thumbnail and event image to catch the eyes of users!</em></p>
+                                    </div>
+                                    <img src="{{url_for('static', filename='image/image-placeholder.png')}}" alt="" width="200px" class="shadow-sm rounded border border-light">
+                                    <form>
+                                        <div class="custom-file mt-3">
+                                            {{ form.eventimage(class_="custom-file-input border") }}
+                                            {{ form.eventimage.label(class_="custom-file-label") }}
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="card shadow border border-rounded mb-4 pb-2">
+                                <div class="d-block text-center">
+                                    <h3 class="text-muted mt-3">User Interaction</h3>
+                                     <div class="input-group mb-3 px-4 pt-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><img src="{{url_for('static', filename='image/icons/cash-stack.svg')}}" alt=""></span>
+                                        </div>
+                                        {{ form.ticketPrice(class_="form-control", placeholder="Price Per Individual Ticket") }}
+                                    </div>
+                                    <div class="input-group mb-3 px-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><img src="{{url_for('static', filename='image/icons/ticket-detailed.svg')}}" alt=""></span>
+                                        </div>
+                                        {{ form.ticketQuantity(class_="form-control", placeholder="Amount of Tickets Available") }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="justify-content-center">{{ form.submit(class_="d-inline btn btn-lg btn-outline-info bg-info text-white rounded rounded-pill px-4 col-11") }}</div>
+                            <div class="row col-12 justify-content-center"><a href="{{url_for('main.index')}}" class="d-inline btn btn-lg btn-outline-danger bg-danger text-white rounded rounded-pill mx-4 my-4 px-4 col-12">Delete Draft</a></div>        
+                        </div>
+                        <div class="col-12 col-lg-7">
+                            <div class="card shadow border border-rounded p-3 mb-4">
+                                <h3 class="text-center text-muted mb-3">Event Information</h3>
+                                <div class="alert alert-success row m-1 p-2" role="alert">
+                                    <div class="d-flex justify-content-end">
+                                        <div class="row d-sm-inline">
+                                            <div class="d-flex justify-content-center d-sm-inline col-12 d-sm-inline ml-4 mb-2">
+                                                <button class="btn btn-light border-secondary rounded rounded-pill mr-5 ml-3" onclick="toggleVis()"><img src="{{url_for('static', filename='image/icons/eye-fill.svg')}}" alt="" width="30px"></button>
+                                                <script>
+                                                    function toggleVis() {
+                                                        var x = document.getElementById("myInput");
+                                                        if (x.type === "password") {
+                                                            x.type = "text";
+                                                        } else {
+                                                            x.type = "password";
+                                                        }
+                                                    }
+                                                </script>
+                                            </div>
+                                            <div class="row d-sm-inline">
+                                                <div class="d-flex justify-content-end col-12 mr-4 mr-sm-0 d-sm-inline">
+                                                    <div class="justify-content-end mr-4 pl-4 mr-sm-0 d-sm-inline">
+                                                        <label for="id" class="my-auto d-inline ml-6">Event ID:</label>
+                                                        <input type="password" id="myInput" class="d-inline rounded rounded-pill ml-md-2 px-2" value="123 456 789" disabled style="border: none;" size="11">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group mb-1 mb-lg-3 mt-3">
+                                <div class="input-group-prepend">
+                                        <span class="input-group-text"><img src="{{url_for('static', filename='image/icons/bookmarks-fill.svg')}}" alt=""></span>
+                                    </div>
+                                    {{ (form.event_name(class_="form-control bg-light", placeholder = "Enter the Event Name")) }}
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><img src="{{url_for('static', filename='image/icons/calendar-check.svg')}}" alt=""></span>
+                                    </div>
+                                    <input type="text" class="form-control bg-light" placeholder="Event Starting Date" aria-label="Event Date" disabled>
+                                    {{ (form.event_start_date(class_="form-control bg-light", placeholder = "Enter the Event Start Date")) }}
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><img src="{{url_for('static', filename='image/icons/calendar-check.svg')}}" alt=""></span>
+                                    </div>
+                                    <input type="text" class="form-control bg-light" placeholder="Event Ending Date" aria-label="Event Date" disabled>
+                                    {{ (form.event_end_date(class_="form-control bg-light", placeholder = "Enter the Event End Date")) }}
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><img src="{{url_for('static', filename='image/icons/clock.svg')}}" alt=""></span>
+                                    </div>
+                                    <input type="text" class="form-control bg-light" placeholder="Event Starting Time" aria-label="Event Date" disabled>
+                                    {{ (form.event_start_time(class_="form-control bg-light", placeholder = "Enter the Event Starting Time")) }}
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><img src="{{url_for('static', filename='image/icons/clock.svg')}}" alt=""></span>
+                                    </div>
+                                    <input type="text" class="form-control bg-light" placeholder="Event Ending Time" aria-label="Event Ending Time" disabled>
+                                    {{ (form.event_end_time(class_="form-control bg-light", placeholder = "Enter the Event Ending Time")) }}
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend" >
+                                        <span class="input-group-text"><img src="{{url_for('static', filename='image/icons/geo-alt-fill.svg')}}" alt=""></span>
+                                    </div>
+                                    {{ (form.event_location(class_="form-control bg-light", placeholder = "Enter the Event Location")) }}
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><img src="{{url_for('static', filename='image/icons/music-note-list.svg')}}" alt=""></span>
+                                    </div>
+                                    {{ (form.event_type(class_="form-control bg-light", placeholder = "Choose the Event Genre")) }}
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><img src="{{url_for('static', filename='image/icons/bell.svg')}}" alt=""></span>
+                                    </div>
+                                    {{ (form.event_state(class_="form-control bg-light", placeholder = "Choose the Event Status")) }}
+                                </div>
+                                {{ form.description(class_="form-control mt-2 bg-light", rows="5", cols="30", style="background: #fff;", placeholder="Type a short 'Event Overview' description to grab the user's attention with the event's features.") }}
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

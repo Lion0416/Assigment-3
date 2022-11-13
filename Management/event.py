@@ -16,7 +16,6 @@ bp = Blueprint('event', __name__, url_prefix='/event')
 
 @bp.route('/<id>')
 def show(id):
-
   #event = db.session.query(Event, Type, States).select_from(Event).join(Type).join(States).filter(Event.eventid == id).first()
   event = Event.query.filter(Event.eventid == id).first()
 
@@ -28,7 +27,7 @@ def show(id):
 @bp.route('/create', methods = ['GET', 'POST'])
 @login_required
 def create():
-  print('Method type: ', request.method)
+  
   form = EventForm()
   form.event_type.choices = [(type.typeid,type.type) for type in Type.query.all()]
   form.event_state.choices = [(states.statesid,states.states) for states in States.query.all()]
@@ -36,9 +35,7 @@ def create():
   if form.validate_on_submit():
     #call the function that checks and returns image
     db_file_path=check_upload_file(form)
-    
-
-    
+  
     event=Event(
       eventName=form.event_name.data,
       eventLocation=form.event_location.data,
@@ -69,9 +66,9 @@ def check_upload_file(form):
   #get the current path of the module file… store image file relative to this path  
   BASE_PATH=os.path.dirname(__file__)
   #upload file location – directory of this file/static/image
-  upload_path=os.path.join(BASE_PATH,'static/image',secure_filename(filename))
+  upload_path=os.path.join(BASE_PATH,'static/image', filename)
   #store relative path in DB as image location in HTML is relative
-  db_upload_path='/static/image/' + secure_filename(filename)
+  db_upload_path='/static/image/' + str(secure_filename(filename))
   #save the file and return the db upload path  
   fp.save(upload_path)
   return db_upload_path
