@@ -1,0 +1,35 @@
+<!-- OLD CODE -->
+{% extends 'base.html' %}
+{% import "bootstrap/form.html" as wtf %}
+{% block content %}
+event
+    <div class="container">
+        <div class="row mt-5 mb-3">
+            <div class="col-md-12">
+                <div class="float-left">
+                    <h1 class="mb-0">{{event.eventName}}</h1>
+                    <p>Popular event</p>
+                </div>
+    
+               
+            </div>
+        </div>
+
+Comments 
+    <div class="row">  
+      <div class="col-md-12">  
+        <h2>Comments</h1>  
+      </div>  
+    </div>  
+ 
+    <div class="row border-bottom"> 
+      {{wtf.render_form(form,"/event/{0}/comment".format(event.eventid))}} 
+      {% for comment in event.comments %}
+      <div class="col-md-12">  
+        <b>{{comment.user.username}} <span class="ml-2 text-muted">{{comment.created_at}}</span></b>
+        <p>{{comment.comment}}</p>  
+      </div> 
+      {% endfor %} 
+    </div>  
+  </div> 
+{% endblock %}
