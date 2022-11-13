@@ -10,6 +10,7 @@ class User(db.Model, UserMixin):
     contactNumber = db.Column(db.String(100))
     password_hash = db.Column(db.String(255), nullable=False)
     address = db.Column(db.String(255))
+
     user = db.relationship('Order', backref='user')
     comments = db.relationship('Comment', backref='user')
 
@@ -18,6 +19,7 @@ class User(db.Model, UserMixin):
 class Event(db.Model):
     __tablename__ = 'event'
     eventid = db.Column(db.Integer, primary_key=True, nullable=False)
+    userid = db.Column(db.Integer, db.ForeignKey('users.id'))
     eventName = db.Column(db.String(80))
     eventstartDate = db.Column(db.Date, nullable=False)
     eventstartTime = db.Column(db.Time, nullable=False)
@@ -28,6 +30,7 @@ class Event(db.Model):
     eventLocation = db.Column(db.String(200))
     description = db.Column(db.String(200))
     ticketQuantity = db.Column(db.Integer)
+    ticketsAvailable = db.Column(db.Integer)
     ticketPrice = db.Column(db.Integer)
     eventImage = db.Column(db.String(400))
 

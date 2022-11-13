@@ -3,7 +3,7 @@ from re import M
 from flask_wtf import FlaskForm
 from datetime import datetime, date
 from traitlets import default
-from wtforms.fields import TextAreaField,SubmitField, StringField, PasswordField,DateField,TimeField,EmailField,SelectField
+from wtforms.fields import TextAreaField,SubmitField, StringField, PasswordField, DateField, TimeField, EmailField, SelectField, IntegerField
 from flask_wtf.file import FileRequired, FileField, FileAllowed
 from wtforms.validators import InputRequired, Length, Email, EqualTo,DataRequired
 
@@ -55,5 +55,11 @@ class EventForm(FlaskForm):
 class CommentForm(FlaskForm):
   text = TextAreaField('Comment', [InputRequired()])
   submit = SubmitField('Create')
+
+
+
+class TicketPurchaseForm(FlaskForm):
+    ticketQuantity = IntegerField('Ticket Quantity', [InputRequired()])
+    submit = SubmitField('Purchase')
 
     

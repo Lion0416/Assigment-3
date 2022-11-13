@@ -21,19 +21,23 @@
                         <div class="text-center"> 
                             <h3 class="mb-2 text-info my-4">{{event.eventName}}</h3>
                             <h4 class="mb-2 text-muted mb-4">{{event.eventLocation}}</h4>
-                            <p class="mb-2 text-muted mb-4">{{event.eventstartTime}}, {{event.startDate}}  <!--7:00PM, Saturday 17th September, 2022-->
-                            </p>
+                            <p class="mb-2 text-muted mb-4">{{event.eventstartTime}}, {{event.startDate}}</p>
                             <p class="card-text mt-4 px-4 pb-4 border-bottom">
                             {{event.Description}}
                             </p>
                             <div class="row">
-                                <div class="d-inline col-6 text-center">
-                                    <p class="pl-4">Ticket Price: <strong>${{event.ticketPrice}}</strong></h4>
-                                    <p class="pl-4">Tickets Sold: 1,200 / 2,000</h4>
-                                </div>
-                                <div class="d-inline col-6">
-                                    <button class="btn btn-outline-info rounded bg-info text-white px-4 py-2 my-5 my-sm-4 mr-2"><strong>Book Ticket</strong></button>
-                                </div>
+                                <form action="" method="POST">
+                                    <div class="d-inline col-6 text-center">
+                                        <p class="pl-4">Ticket Price: <strong>${{event.ticketPrice}}</strong></h4>
+                                        <p class="pl-4">Tickets Sold: {{event.ticketQuantity - event.ticketsAvailable}} / {{event.ticketQuantity}}</h4>
+                                    </div>
+                                    <div class="d-inline col-6">
+                                        <form action="" method="POST">
+                                            {{wtf.render_form(form2)}}
+                                            <button class="btn btn-outline-info rounded bg-info text-white px-4 py-2 my-5 my-sm-4 mr-2"><strong>Book Ticket</strong></button>
+                                        </form>
+                                    </div>
+                                </form>
                             </div> 
                         </div>
                     </div>
@@ -47,10 +51,9 @@
                                 {% for comment in event.comments %}
                                 <div class="d-flex flex-start mb-4">
                                     <div class="card w-100">
-                                        <div class="card-body shadow border-light rounded p-4 bg-white"
-                                            style="background-image: url(static/image/comments-card-background.png); background-size: 50px; background-repeat: no-repeat; background-position: 95% 20px;">
+                                        <div class="card-body shadow border-light rounded p-4" style="background-image: url({{url_for('static', filename='image/comments-card-background.png')}}; background-size: 50px; background-repeat: no-repeat; background-position: 95% 20px;">
                                             <div class="row">
-                                                <img class="rounded-circle shadow-1-strong me-3 ml-2" src="static/image/icons/people/person2.jpg"
+                                                <img class="rounded-circle shadow-1-strong me-3 ml-2" src="{{url_for('static', filename='image/icons/person-circle.svg')}}"
                                                     alt="avatar" width="55" height="55" />
                                                 <div class="d-inline ml-4 my-auto">
                                                     <h5>{{comment.user.userName}}</h5>
@@ -86,78 +89,22 @@
                                         {{event.description}}
                                     </p>
                                     <div class="row">
-                                        <div class="d-inline col-6 text-center">
+                                        <div class="d-inline col-12 text-center">
                                             <p class="pl-4">Ticket Price: <strong>${{event.ticketPrice}}</strong></h4>
-                                            <p class="pl-4">Tickets Sold: 1,200 /{{event.ticketQuantity}}</h4>
-                                        </div>
-                                        <div class="d-inline col-6">
-                                            <a href="/login.html" class="text-decoration-none">
-                                                <button class="btn btn-outline-info rounded bg-info text-white px-4 py-2 my-2 mr-3"><strong>Book
-                                                        Ticket</strong></button>
-                                            </a>
+                                            <p class="pl-4">Tickets Sold: {{event.ticketQuantity - event.ticketsAvailable}} / {{event.ticketQuantity}}</h4>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="card shadow mb-4" style="background-color: rgba(23, 162, 184, 0.1);;">
-                                <div class="text-center col-12">
-                                    <h3 class="mb-2 mt-md-3 mb-sm-4 mb-lg-6">You might like these <span class="text-muted">Similar
-                                            Events</span></h3>
-                                    <div class="container row justify-content-center">
-                                        <div class="card d-inline col-12 mt-2 mb-4" style="left: 15px">
-                                            <a href="eventdetailsloggedin.html" class="text-decoration-none">
-                                                <h5 class="text-info mt-2">The Smith Street Band - "One More Tour"</h5>
-                                                <p class="mb-2 text-muted">7:00PM, Friday 23rd September, 2022</p>
-                                                <p class="mb-2 text-muted">Fortitude Music Hall</p>
-                                                <img class="rounded w-50" src="/img/events/theSmithStreetBandEventPicture.jpg"
-                                                    alt="Smith Street Band Event">
-                                            </a>
-                                            <br>
-                                            <a class="btn btn-outline-secondary rounded-pill m-3" data-toggle="collapse"
-                                                href="#collapseContent1" role="button" aria-expanded="false"
-                                                aria-controls="collapseExample">
-                                                <img src="/img/icons/arrow-down.svg" alt="">
-                                                View Event Description
-                                            </a>
-                                            <div class="collapse mb-2" id="collapseContent1">
-                                                <strong>The Smith Street Band</strong> are thrilled to announce a return to their roots.
-                                                <em>“Australia! This is our first big proper tour in what feels like forever! We are so
-                                                    excited to be going all over the country playing again! See you all soon!”</em>
-                                            </div>
-                                        </div>
-                    
-                                        <div class="card d-inline col-12 mt-2 mb-4" style="left: 15px">
-                                            <a href="eventdetailsloggedin.html" class="text-decoration-none">
-                                                <h5 class="text-info mt-2">Pub Choir - "Australia's Biggest Singalong"</h5>
-                                                <p class="mb-2 text-muted">6:00PM, Wednesday 28th September, 2022</p>
-                                                <p class="mb-2 text-muted">Fortitude Music Hall</p>
-                                                <img class="rounded w-50" src="/img/events/pubChoirEventPicture.jpg" alt="Pub Choir Event">
-                                            </a>
-                                            <br>
-                                            <a class="btn btn-outline-secondary rounded-pill m-3" data-toggle="collapse"
-                                                href="#collapseContent2" role="button" aria-expanded="false"
-                                                aria-controls="collapseExample">
-                                                <img src="/img/icons/arrow-down.svg" alt="">
-                                                View Event Description
-                                            </a>
-                                            <div class="collapse mb-2" id="collapseContent2">
-                                                So you think you’re a great singer? Neither do we. But that’s not the point! <strong>Pub
-                                                    Choir Brisbane</strong> is here to prove that being dead average at singing should never
-                                                stop you from having a lovely time. In 90 minutes, experience the magic as an entire crowd
-                                                of randos is transformed into an electrifying, incredible choir.
-                                            </div>
-                                        </div>
+                                    <div class="d-flex justify-content-center">
+                                        <form action="" method="POST">
+                                            {{ form2.hidden_tag ()}}
+                                            {{ (form2.ticketQuantity(class_="form-control col-10", placeholder = "How Many Tickets?", autofocus = true)) }}
+                                            {{ (form2.submit(class_="btn btn-outline-info rounded bg-info text-white px-4 py-2 my-5 my-sm-4 mr-2 font-weight-bold")) }}
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    
-
-                    
-                        
-                    
                 </div>
             </div>
         </div>
