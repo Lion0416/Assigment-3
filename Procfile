@@ -1,2 +1,1 @@
-web: python myServer.py
-web: gunicorn 'Management:create_app()'
+web: gunicorn -w 2 'Management:create_app()'
